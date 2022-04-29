@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container mt-4">
+    
+    <div class="p-4 m-4">
+
+        
+        <div class="col-lg-4 rounded mx-auto">
+            <div class="text-center col">
+            
+                <img src="https://img.icons8.com/external-xnimrodx-lineal-gradient-xnimrodx/64/000000/external-login-freelancer-xnimrodx-lineal-gradient-xnimrodx.png"/>
+            <!-- <hr> -->
+            <div class="display-8">LOGIN HERE</div>
+            <hr>
+            </div>
+            
+            <form action="/login" method="POST">
+                
+                {% csrf_token %}
+
+                {% if error%}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+                
+
+                
+
+                
+                <!-- email -->
+                <div class="mb-3">
+                    <label for="">Email</label>
+                    <input required type="email" name="email" id=""
+                    value="{{values.email}}" 
+                    class=" form-control-sm form-control" placeholder="example@gmail.com">
+                </div>
+
+
+                <!-- password -->
+                <div class="mb-3">
+                    <label for="">Password</label>
+                    <input type="password" 
+                    name="password" 
+                    id=""
+                     class="form-control form-control-sm" placeholder="********">
+                </div>
+
+                <hr>
+                <div class="mb-3">
+                    <input class="btn btn-sm btn-info col-lg-4" type="submit" value="Login">
+                </div>
+
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

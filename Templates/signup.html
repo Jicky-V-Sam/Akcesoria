@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container mt-4">
+    
+    <div class="p-4 m-4">
+
+        
+        <div class="col-lg-5 rounded mx-auto">
+            <div class="text-center col">
+            
+              <img src="https://img.icons8.com/external-bearicons-gradient-bearicons/64/000000/external-sign-up-call-to-action-bearicons-gradient-bearicons-1.png"/>
+            <!-- <hr> -->
+            <div class="display-8">Create Account</div>
+            <hr>
+            </div>
+            
+            <form action="/signup" method="POST">
+                
+                {% csrf_token %}
+
+                {% if error%}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+                <!-- firstname -->
+                <div class="mb-3">
+                    <label for="">First Name</label>
+                    <input type="text" name="firstname"
+                     id="" value="{{values.first_name}}" class="form-control form-control-sm" 
+                     placeholder="">
+                </div>
+
+                <!-- last name -->
+                <div class="mb-3">
+                    <label for="">Last Name</label>
+                    <input type="text" name="lastname" 
+                    id="" value="{{values.last_name}}" class="form-control form-control-sm"
+                    >
+                </div>
+
+                <!-- phone -->
+                <div class="mb-3">
+                    <label for="">Phone</label>
+                    <input type="text" name="phone" 
+                    id="" class="form-control form-control-sm"
+                    value="{{values.phone}}"
+                    placeholder="enter a 10 digit number"
+                    >
+                </div>
+                <!-- email -->
+                <div class="mb-3">
+                    <label for="">Email</label>
+                    <input required type="email" name="email" id=""
+                    value="{{values.email}}" 
+                    class=" form-control-sm form-control" placeholder="example@gmail.com">
+                </div>
+
+
+                <!-- password -->
+                <div class="mb-3">
+                    <label for="">Password</label>
+                    <input type="password" 
+                    name="password" 
+                    id=""
+                     class="form-control form-control-sm" placeholder="********">
+                </div>
+
+                <hr>
+                <div class="mb-3">
+                    <input class="btn btn-sm btn-info" type="submit" value="Sign-Up">
+                </div>
+
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
